@@ -21,6 +21,9 @@ func_categories=$DATADIR/eggnog4.functional_categories.txt
 # the file from eggNOG 4.5
 ###
 
+
+
+
 ### Set up environment
 mkdir -p $DATADIR
 if [ -z "$(ls $DATADIR)" ]; then
@@ -28,28 +31,41 @@ if [ -z "$(ls $DATADIR)" ]; then
     # http://eggnog5.embl.de/download/eggnog_5.0/
     pushd $DATADIR
     echo "Downloading required data files..."
+    
     # Your code here
+    # download required files
+    
+    # members files
+    wget http://eggnog5.embl.de/download/eggnog_5.0/per_tax_level/2/2_members.tsv.gz
+    wget http://eggnog5.embl.de/download/eggnog_5.0/per_tax_level/2157/2157_members.tsv.gz
+    wget http://eggnog5.embl.de/download/eggnog_5.0/per_tax_level/2759/2759_members.tsv.gz
+    
+    # annotation files
+    wget http://eggnog5.embl.de/download/eggnog_5.0/per_tax_level/2157/2157_annotations.tsv.gz
+    wget http://eggnog5.embl.de/download/eggnog_4.5/eggnog4.functional_categories.txt
+    
     popd
 fi
+
 
 ### 1. Which genes (OGs) occur in at least 99% of all genomes in the eggNOG5 database
 # in each domain of life, respectively?
 # (For large gzipped files, reading from stdin is usually faster than using the "gzip"
 # module in Python)
-zcat $bacteria | ./read_members_file.py -min_occurence 99 > cogs_bacteria_o99.txt
-zcat $archaea | ./read_members_file.py -min_occurence 99 > cogs_archaea_o99.txt
-zcat $eukaryota | ./read_members_file.py -min_occurence 99 > cogs_eukaryota_o99.txt
+#zcat $bacteria | ./read_members_file.py -min_occurence 99 > cogs_bacteria_o99.txt
+#zcat $archaea | ./read_members_file.py -min_occurence 99 > cogs_archaea_o99.txt
+#zcat $eukaryota | ./read_members_file.py -min_occurence 99 > cogs_eukaryota_o99.txt
 
 ### 2. Which bacterial genes occur in at least 50% of all bacterial genomes, and in
 # at least 99% thereof as single-copy?
-zcat $bacteria | ./read_members_file.py -min_occurence 50 -min_uniqueness 99 > cogs_bacteria_o50_u99.txt
+#zcat $bacteria | ./read_members_file.py -min_occurence 50 -min_uniqueness 99 > cogs_bacteria_o50_u99.txt
 # How many of these OGs were also identified as universal bacterial OGs (from previous question)?
-comm -12 cogs_bacteria_o99.txt cogs_bacteria_o50_u99.txt
+comm -12 cogs_bacteria_o99.txt cogs_bacteria_o50_u99.txt > test.txt
 
 ### 3. Identify all OGs that occur as single-copy in at least 97% of all archaea
 zcat $archaea | ./read_members_file.py -min_occurence_as_singlecopy 97 > cogs_archaea_os97.txt
 # Are there archaea which lack 4 or more of those universal OGs?
-zcat $archaea | ./read_members_file.py -min_occurence_as_singlecopy 97 -missing 4
+zcat $archaea | ./read_members_file.py -min_occurence_as_singlecopy 97 -missing 4 > test2.txt
 
 ### 4. Compile an overview of the functional categories of these 121 archaeal OGs
 ./annotate_cogs.py $func_categories $archaea_fct cogs_archaea_os97.txt
