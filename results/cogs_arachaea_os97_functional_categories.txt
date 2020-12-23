@@ -1,0 +1,12 @@
+82 Translation, ribosomal structure and biogenesis 
+11 Nucleotide transport and metabolism 
+10 Transcription 
+3 Function unknown 
+2 Intracellular trafficking, secretion, and vesicular transport 
+2 Coenzyme transport and metabolism 
+2 Posttranslational modification, protein turnover, chaperones 
+2 Replication, recombination and repair 
+1 Lipid transport and metabolism 
+1 Carbohydrate transport and metabolism 
+1 Energy production and conversion 
+1 Amino acid transport and metabolism 
