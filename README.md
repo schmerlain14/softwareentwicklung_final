@@ -61,6 +61,8 @@ The project was done with Python 3.7.9, so please make sure to use this version.
 3. Identify all OGs that occur as single-copy in at least 97% of all Archaea.
 
     A. How many such OGs did you identify? Provide the result as a sorted text file. [2 points]
+        
+        This result is stored in the file *cogs-arachea_os97.txt* and it hast 121 entries.
     
     B.It would be interesting to know if there are archaeal genomes which substantially deviate from this "default" archaeal gene set. Are there Archaea which lack 4 or more of these universal OGs? Which organism (scientific name) lacks most? [3 points] What is its preferred growing temperature/environment? [0.5 bonus points]
     
@@ -68,6 +70,9 @@ The project was done with Python 3.7.9, so please make sure to use this version.
 4. Compile an overview of the functional categories of these 121 archaeal OGs.
 
     A. Provide the result as a text file sorted by the number of the functional categories. The result should look like shown below. [5 points]
+        
+        This file is also stored in the *results* folder and its name is *cogs_arachaea_os97_functional_categories.txt* it contains the 12 categories that occured,
+        ordered via the number of occurence.
 
 
   

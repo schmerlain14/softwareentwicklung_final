@@ -245,7 +245,7 @@ if __name__ == "__main__":
         type=float,
         default=0,
         help="""Minimum combined occurence+uniqueness (e.g. single-copy in 97%%
-        of all genomes); shouled be 0-100, default=0""",
+        of all genomes); should be 0-100, default=0""",
     )
     parser.add_argument(
         "-seqids_out",

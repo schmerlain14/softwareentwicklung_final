@@ -47,7 +47,9 @@ if [ -z "$(ls $DATADIR)" ]; then
     popd
 fi
 
+# create result folder
 mkdir -p results
+
 
 ### 1. Which genes (OGs) occur in at least 99% of all genomes in the eggNOG5 database
 # in each domain of life, respectively?
@@ -69,4 +71,4 @@ zcat $archaea | ./read_members_file.py -min_occurence_as_singlecopy 97 > results
 zcat $archaea | ./read_members_file.py -min_occurence_as_singlecopy 97 -missing 4 > results/cogs_archaea_os97_lack4_universal_OG.txt
 
 ### 4. Compile an overview of the functional categories of these 121 archaeal OGs
-./annotate_cogs.py $func_categories $archaea_fct cogs_archaea_os97.txt
+./annotate_cogs.py $func_categories $archaea_fct results/cogs_archaea_os97.txt    # this file is already stroed automatically
