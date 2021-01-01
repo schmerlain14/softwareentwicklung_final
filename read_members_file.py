@@ -22,6 +22,8 @@ good_cogs = set()
 cog2taxids = {}
 cog2seqids = {}
 taxid2missing_cogs = defaultdict(list)
+missing_cogs = {}
+missing_taxids_cogs = []
 
 
 def uniques(lst):
@@ -65,25 +67,25 @@ def calc_stats(taxids, all_taxids):
     """
     # Basic argument checking
     assert len(set(all_taxids)) == len(all_taxids), "Taxids occur more than once?"
-    
+
     # Your code here
-    
+
     # create the variables used afterwards
     taxid_intersect = set(taxids).intersection(all_taxids)
     unique_taxids = uniques(taxids)
-    
+
     # each of the stats needs to be multiplieed with 100 to get the percentage
     # always compare the length of the asked taxids to receive values
-    
+
     # occurence
     occurence = len(taxid_intersect)/len(all_taxids)*100
-    
+
     # uniqueness
     uniqueness = len(unique_taxids)/len(taxid_intersect)*100
-    
+
     # occurence_as_singlecopy
     occurence_as_singlecopy = len(unique_taxids)/len(all_taxids)*100
-        
+
     return (occurence, uniqueness, occurence_as_singlecopy)
 
 
@@ -126,20 +128,22 @@ def parse_members_file(fin):
 
 def missing_taxids(cog, taxids):
     """Determines which OGs are missing from which taxids.
-    
+
     Args:
         cog:
         taxids: Taxids of sequences comprising an OG
-        
+
     Returns:
         missing_cogs
-    """ 
+    """
     logger.debug(f"Determining missing taxids for {cog}")
-    
+
     # Your code here
-   
-    
-    
+    if len(all_taxids-set(taxids)) > 0:
+        missing_cogs[cog] = (all_taxids-set(taxids))
+    return (missing_cogs)
+
+
 
 
 def output_seqids(filename, cogs):
@@ -199,8 +203,17 @@ def determine_cogs(args):
     # Output taxids with missing cogs
     if args.missing:
         logger.info(f"Outputting taxids with at least {args.missing} missing OGs.")
-        # Your code here
-        pass
+        # Determine taxids with missing OGs and add to list
+        for k in missing_cogs:
+            _taxids = missing_cogs[k]
+            for i in _taxids:
+                missing_taxids_cogs.append(i)
+            # Count missing cogs per taxid
+        missing_taxids_cogs_counted = Counter(missing_taxids_cogs)
+
+        for k in missing_taxids_cogs_counted:
+            if missing_taxids_cogs_counted[k] >= args.missing:
+                print("taxid", k, "lacks", missing_taxids_cogs_counted[k], "OG's")
 
 
 def main(args):
