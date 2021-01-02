@@ -1,6 +1,6 @@
 # Final project for "Weiterführende Softwareentwicklung"
 
-### Members: Hrönn Kjartansdottir, Katja rüdiger, Natalie Schmerlaib
+### Members: Hrönn Kjartansdottir, Katja Rüdiger, Natalie Schmerlaib
 
 ## Project Name: softwareentwicklung_final
 
@@ -11,11 +11,11 @@ Overall information about the task is provided in *04-exercise-final-challenge.h
 Is downloaded automatically when executing run.sh and stored in a folder called eggnog_data-
 
 ### Scripts
-The project provides 3 scripts, one bash script and two python.
+The project provides 3 scripts, one bash script and two python scripts.
 
-The bash script is calles *run.sh* and is the one that needs to be used for producing everything. It is only necessary to call this one because it executes the other two.
+The bash script is called *run.sh* and is the one that needs to be used for producing everything. It is only necessary to call this one because it executes the other two.
 
-The two python scripts *annotate_cogs.py* and *read_members_file.py* have methods and functions to create everything that is done in this project.
+The two python scripts *annotate_cogs.py* and *read_members_file.py* have methods and functions to create everything that is done in this project. The *read_members_file.py* script does the parsing of the eggnog_data_members files, selects the OGs matching the pre-defined values and processes the data from the members files. It outputs a list of all matching OGs. The *annotate_cogs.py* script distinguishes the OGs by different functional categories and counts the amount of OGs for each category. It outputs an overview of the occuring categories and the number of occurence.
 
 ### Results
 
@@ -65,6 +65,9 @@ The project was done with Python 3.7.9, so please make sure to use this version.
         This result is stored in the file *cogs-arachea_os97.txt* and it hast 121 entries.
     
     B.It would be interesting to know if there are archaeal genomes which substantially deviate from this "default" archaeal gene set. Are there Archaea which lack 4 or more of these universal OGs? Which organism (scientific name) lacks most? [3 points] What is its preferred growing temperature/environment? [0.5 bonus points]
+    
+    There are 6 Archaea whick lack 4 or more of these universal OGs.
+    The one which lacks the most OGs (7 OGs) is Pyrococcus horikoshii OT-3, an anaerobe, hyperthermophilic archaeon that was isolated from marine hydrothermal vent at 1395 m depth. The preferred growth conditions are anaerob with a temperature of 95 °C (https://bacdive.dsmz.de/strain/16857)
     
 
 4. Compile an overview of the functional categories of these 121 archaeal OGs.

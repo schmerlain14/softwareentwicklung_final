@@ -120,3 +120,9 @@ arCOG04312	99.4	98.2	97.6
 arCOG04314	98.8	100.0	98.8
 arCOG04372	100.0	100.0	100.0
 arCOG04473	99.4	99.4	98.8
+taxid 633148 lacks 4 OG's
+taxid 374847 lacks 6 OG's
+taxid 1229909 lacks 5 OG's
+taxid 1227454 lacks 4 OG's
+taxid 70601 lacks 7 OG's
+taxid 1448860 lacks 4 OG's
