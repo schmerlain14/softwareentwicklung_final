@@ -29,6 +29,7 @@ The project was done with Python 3.7.9, so please make sure to use this version.
 1. First apply in bash chmod +x to all scripts, if they are not already executable, so that they can be run and used.
 2. Then execute the run.sh script (with ./run.sh)
 
+
 ## Answers to questions
 
 1. Which genes are universally required for an organism to survive? More precisely: Which genes (OGs) occur in at least 99% of all genomes in the eggNOG5 database in each domain of life, respectively? (The results should be around 100-300.)
@@ -58,6 +59,8 @@ The project was done with Python 3.7.9, so please make sure to use this version.
    
        The comparison of those two now for bacteria produced files results in the file *cogs_bacteria_o50_u99_universal_OG.txt* in the *results* folder and there were 40 found.
 
+
+
 3. Identify all OGs that occur as single-copy in at least 97% of all Archaea.
 
     A. How many such OGs did you identify? Provide the result as a sorted text file. [2 points]
@@ -66,20 +69,17 @@ The project was done with Python 3.7.9, so please make sure to use this version.
     
     B.It would be interesting to know if there are archaeal genomes which substantially deviate from this "default" archaeal gene set. Are there Archaea which lack 4 or more of these universal OGs? Which organism (scientific name) lacks most? [3 points] What is its preferred growing temperature/environment? [0.5 bonus points]
     
-    There are 6 Archaea whick lack 4 or more of these universal OGs.
-    The one which lacks the most OGs (7 OGs) is Pyrococcus horikoshii OT-3, an anaerobe, hyperthermophilic archaeon that was isolated from marine hydrothermal vent at 1395 m depth. The preferred growth conditions are anaerob with a temperature of 95 °C (https://bacdive.dsmz.de/strain/16857)
-    
+         There are 6 Archaea whick lack 4 or more of these universal OGs.
+         
+         The one which lacks the most OGs (7 OGs) is Pyrococcus horikoshii OT-3, an anaerobe, hyperthermophilic archaeon that was isolated from marine hydrothermal vent at 1395 m depth. The preferred growth conditions are anaerob with a temperature of 95 °C (https://bacdive.dsmz.de/strain/16857)
+        
+
 
 4. Compile an overview of the functional categories of these 121 archaeal OGs.
 
-    A. Provide the result as a text file sorted by the number of the functional categories. The result should look like shown below. [5 points]
+    A. Provide the result as a text file sorted by the number of the functional categories. [5 points]
         
         This file is also stored in the *results* folder and its name is *cogs_arachaea_os97_functional_categories.txt* it contains the 12 categories that occured,
-        ordered via the number of occurence.
-
-
-  
-
-
+        ordered by the number of occurence.
 
 
