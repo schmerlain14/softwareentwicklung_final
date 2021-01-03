@@ -83,3 +83,12 @@ The project was done with Python 3.7.9, so please make sure to use this version.
         ordered by the number of occurence.
 
 
+___________________________________________________________________________________________________________
+
+## ASCII mirror cat
+
+1. Write a function that creates a mirror image of the ASCII cat. The output should be the same cat looking to the other side. Start with creating a mirror image of cat1. When this works, modify your code so that it also works for cat2. You can use the provided template. [2 bonus points]
+
+         The file *ascii_cat.ipynb* contains a functioning python script that mirrors the ASCII image of a cat.
+
+
